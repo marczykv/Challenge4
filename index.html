@@ -1,11 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Timed Quiz</title>
+  <link rel="stylesheet" href="style.css">>
 </head>
 <body>
-    
+    <div id="quiz-container">
+        <h1>Timed Coding Quiz</h1>
+        <div id="timer">Time: <span id="time">0</span></div>
+        <div id="question"></div>
+        <div id="options"></div>
+        <button id="start-btn">Start Quiz</button>
+        <button id="submit-btn" style="display: none;">Submit</button>
+        <div id="score-container" style="display: none;">
+          <h2>Your Score: <span id="score"></span></h2>
+          <label for="initials">Enter Initials:</label>
+          <input type="text" id="initials" />
+          <button id="save-btn">Save</button>
+        </div>
+      </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
