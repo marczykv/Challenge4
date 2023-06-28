@@ -69,3 +69,32 @@
     border: 1px solid #ccc;
     margin-bottom: 10px;
   }
+  
+  #options button {
+    display: none;
+  }
+  
+  /* Show the options when the question is displayed */
+  #question:not(:empty) + #options button {
+    display: block;
+  }
+  
+  /* Style the "wrong" and "correct" response */
+  .result {
+    margin-top: 10px;
+    font-family: "Arial", sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .resultLabel {
+    display: block;
+  }
+  
+  .correct {
+    color: green;
+  }
+  
+  .wrong {
+    color: red;
+  }
