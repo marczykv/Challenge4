@@ -1,9 +1,14 @@
 // Define an array of quiz questions and their options
 const quizQuestions = [
   {
-    question: "What is the result of 2 + 2?",
-    options: ["2", "4", "6", "8"],
-    answer: 1,
+    question: "Which of the following is not a fundamental web technology?",
+    options: ["HTML", "CSS", "JavaScript", "SQL"],
+    answer: 3,
+  },
+  {
+    question: "What are the basic elements that exist in HTML pages between <html> tags?",
+    options: ["function", "style.css", "<head> and <body>", "media query"],
+    answer: 2,
   },
   {
     question: "What is the correct way to declare a variable in JavaScript?",
@@ -11,11 +16,35 @@ const quizQuestions = [
     answer: 3,
   },
   {
+    question: "What is the purpose of CSS?",
+    options: ["Too add interactivity to web pages", "To structure and style web content", "Server-side processing", "To handle database operations"],
+    answer: 1,
+  },
+  {
     question: "In CSS, how do you select elements by their class attribute?",
     options: ["<class", ".class", "class", "=class"],
     answer: 1,
   },
-  // Add more questions here
+  {
+    question: "What is jQuery?",
+    options: ["dictionary of coding terms", "JavaScript library", "coding program", "extension of html"],
+    answer: 1,
+  },
+  {
+    question: "How can you test to see if your JavaScript code appears in the console?",
+    options: ["console.log", "if statement", "const", "for"],
+    answer: 0,
+  },
+  {
+    question: "What is the correct syntax for a Javascript for loop?",
+    options: ["for (i = 0; i < 5; i++)", "for (var i = 0; i < 5; i++)", "for (i < 5; i++)", "for (i = 0; i++; i < 5)"],
+    answer: 1,
+  },
+  {
+    question: "Which of the following is not a JavaScript framework or library?",
+    options: ["Angular", "React", "Vue", "PHP"],
+    answer: 3,
+  },
 ];
 
 // Set variables to track the current question, score, and timer
@@ -24,7 +53,7 @@ let score = 0;
 let timerInterval;
 let timeLeft = 75;
 
-// Get DOM elements
+// Setting DOM elements
 const timerElement = document.getElementById("time");
 const questionElement = document.getElementById("question");
 const optionsElement = document.getElementById("options");
@@ -45,15 +74,15 @@ function startQuiz() {
   questionElement.style.display = "block";
   optionsElement.style.display = "block";
 
-  // Reset the timer
+  // Resets the timer
   clearInterval(timerInterval);
   timeLeft = 75;
   timerElement.textContent = timeLeft;
 
-  // Start the timer
+  // Starting the timer
   startTimer();
 
-  // Display the first question
+  // Displays the first question
   displayQuestion();
 }
 
@@ -71,7 +100,7 @@ function displayQuestion() {
   }
 }
 
-// Function to handle user answer submission
+// Function to handle the player's answer submission
 function submitAnswer(event) {
   const selectedOption = event.target;
   const currentQuestion = quizQuestions[currentQuestionIndex];
@@ -90,7 +119,6 @@ function submitAnswer(event) {
     subtractTime();
   }
 
-  // Disable all options after selection
   const options = Array.from(optionsElement.children);
   options.forEach((option) => {
     option.removeEventListener("click", submitAnswer);
@@ -104,11 +132,11 @@ function submitAnswer(event) {
   if (currentQuestionIndex < quizQuestions.length) {
     setTimeout(() => {
       displayQuestion();
-      enableOptions(); // Re-enable options after displaying the question
+      enableOptions(); 
       resultElement.innerHTML = ""; // Clear the result after displaying the next question
     }, 1000); // Delay before displaying the next question
   } else {
-    setTimeout(endQuiz, 1000); // Delay before ending the quiz
+    setTimeout(endQuiz, 1000);
   }
 }
 
