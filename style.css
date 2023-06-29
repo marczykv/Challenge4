@@ -90,7 +90,7 @@
   .resultLabel {
     display: block;
   }
-  
+  /* Added colors depending on the result of your question */
   .correct {
     color: green;
   }
